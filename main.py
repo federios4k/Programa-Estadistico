@@ -31,51 +31,39 @@ def menu_principal(tabla_final):
 
         opcion = input("Seleccioná una opción: ")
 
-        # =============================
         # 1. MEDIA POBLACIONAL
-        # =============================
         if opcion == "1":
             datos = tabla_a_lista(tabla_final)
             resultado = calcular_media(datos)
             print(f"\nMedia poblacional estimada: {resultado}")
 
-        # =============================
         # 2. VARIANZA POBLACIONAL
-        # =============================
         elif opcion == "2":
             datos = tabla_a_lista(tabla_final)
             resultado = varianza_poblacional(datos)
             print(f"\nVarianza poblacional estimada: {resultado}")
 
-        # =============================
         # 3. INTERVALO MEDIA
-        # =============================
         elif opcion == "3":
             datos = tabla_a_lista(tabla_final)
             c = float(input("Nivel de confianza (0.90, 0.95, 0.99): ").replace(",", "."))
             li, ls = intervalo_media(datos, c)
             print(f"\nIC para la media ({c*100}%): ({li}, {ls})")
 
-        # =============================
         # 4. INTERVALO VARIANZA
-        # =============================
         elif opcion == "4":
             datos = tabla_a_lista(tabla_final)
             c = float(input("Nivel de confianza (0.90, 0.95, 0.99): ").replace(",", "."))
             li, ls = intervalo_varianza(datos, c)
             print(f"\nIC para la varianza ({c*100}%): ({li}, {ls})")
-
-        # =============================
+            
         # 5. NUEVA TABLA
-        # =============================
         elif opcion == "5":
             print("\nCargando nueva tabla...")
             ejecutar_flujo_principal()
             return
 
-        # =============================
         # 6. SALIR
-        # =============================
         elif opcion == "6":
             print("\nSaliendo del programa...")
             exit()
@@ -110,3 +98,4 @@ def ejecutar_flujo_principal():
 
 if __name__ == "__main__":
     ejecutar_flujo_principal()
+
